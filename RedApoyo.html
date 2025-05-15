@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sabiduría Digital</title>
+    <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="/Index.html" class="back-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
+                    </svg>
+                </a>
+                <h1>Sabiduría digital</h1>
+                <div class="logo">
+                    <div class="logo-circle">
+                        <img src="imagenes/LOGOTIPO.png" alt="Logo"/>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/Tutoriales.html" onclick="irATutoriales()">Tutoriales</a></li>
+                    <li ><a href="/ServiciosdeSalud.html">Servicios de salud</a></li>
+                    <li><a href="/Localizacion.html" onclick="irALocalizador()">Localizador</a></li>
+                    <li class="active"><a href="/RedApoyo.html" onclick="irARedApoyo()">Red de apoyo</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar..." />
+                <button class="microphone-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 
+            ----------------------------------
+            REEMPLAZA el numero de telefono por el correcto
+            -->
+            <a href="tel:911" class="emergency-call-button">📞 Llamar a Emergencias</a>
+            <a href="tel:2233332224" class="emergency-call-button2">📞 Llamar a Vecino Perez</a>
+            <a href="tel:2233332224" class="emergency-call-button2">📞 Llamar a Comadre Lupita</a>
+            <a href="tel:2233332224" class="emergency-call-button2">📞 Llamar a Vecino Juan</a>
+            <a href="tel:2233332224" class="emergency-call-button2">📞 Llamar a Solovino</a>
+            <a href="tel:2233332224" class="emergency-call-button2">📞 Llamar a Maximiliano</a>
+        </main>
+    </div>
+
+    <script>
+        function mostrarNota(elemento) {
+            document.querySelectorAll('.nota').forEach(n => n.style.display = 'none');
+            const nota = elemento.querySelector('.nota');
+            nota.style.display = 'block';
+        }
+
+        function toggleMarea() {
+            const mareaContent = document.getElementById('marea-content');
+            const expandButton = document.querySelector('.expand-button');
+            if (mareaContent.style.display === 'none') {
+                mareaContent.style.display = 'block';
+                expandButton.innerHTML = '&#9451;';
+            } else {
+                mareaContent.style.display = 'none';
+                expandButton.innerHTML = '&#9452;';
+            }
+        }
+
+        // Redirecciones a otras vistas
+        document.getElementById('btnIntegracion').onclick = function() {
+            window.location.href = 'integracion.html';
+        };
+
+        document.getElementById('btnMedicamentos').onclick = function() {
+            window.location.href = 'recordatorios.html';
+        };
+
+        function irATutoriales() {
+            window.location.href = 'tutoriales.html';
+        }
+
+        function irALocalizador() {
+            window.location.href = 'localizador.html';
+        }
+
+        function irARedApoyo() {
+            window.location.href = 'red_apoyo.html';
+        }
+    </script>
+</body>
+</html>

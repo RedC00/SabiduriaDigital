@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sabiduría Digital</title>
+    <link rel="stylesheet" href="css/principal.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+     <style>
+        #mapid { height: 300px; }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="/Index.html" class="back-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
+                    </svg>
+                </a>
+                <h1>Sabiduría digital</h1>
+                <div class="logo">
+                    <div class="logo-circle">
+                        <img src="imagenes/LOGOTIPO.png" alt="Logo"/>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/Tutoriales.html">Tutoriales</a></li>
+                    <li><a href="/ServiciosdeSalud.html">Servicios de salud</a></li>
+                    <li class="active"><a href="/Localizacion.html">Localizador</a></li>
+                    <li><a href="/RedApoyo.html">Red de apoyo</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar..." />
+                <button class="microphone-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <button id="obtenerUbicacion">Obtener mi ubicación</button>
+            <div id="mapid" style="display: none;"></div>
+            <p id="ubicacion"></p>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+      <script>
+        var map = L.map('mapid').setView([0, 0], 2); // Coordenadas iniciales y nivel de zoom
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var obtenerUbicacionBtn = document.getElementById('obtenerUbicacion');
+        var mapaDiv = document.getElementById('mapid');
+        var ubicacionParrafo = document.getElementById('ubicacion');
+        var marcador;
+
+        obtenerUbicacionBtn.addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+            } else {
+                ubicacionParrafo.textContent = "Tu navegador no soporta la geolocalización.";
+            }
+        });
+
+        function mostrarUbicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+
+            ubicacionParrafo.textContent = "Latitud: " + latitud + ", Longitud: " + longitud;
+            map.setView([latitud, longitud], 15); // Centrar el mapa en la ubicación y ajustar el zoom
+            mapaDiv.style.display = 'block'; // Mostrar el div del mapa
+
+            if (marcador) {
+                map.removeLayer(marcador); // Eliminar marcador anterior si existe
+            }
+            marcador = L.marker([latitud, longitud]).addTo(map)
+                .bindPopup('¡Estás aquí!').openPopup();
+        }
+
+        function mostrarError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    ubicacionParrafo.textContent = "El usuario denegó la solicitud de geolocalización.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    ubicacionParrafo.textContent = "La información de ubicación no está disponible.";
+                    break;
+                case error.TIMEOUT:
+                    ubicacionParrafo.textContent = "La solicitud para obtener la ubicación del usuario ha expirado.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    ubicacionParrafo.textContent = "Ocurrió un error desconocido.";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

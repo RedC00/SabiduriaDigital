@@ -1,0 +1,442 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0e6d2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+}
+
+html {
+    height: 100%;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    max-width: 600px;
+    height: 100vh;
+    max-height: 900px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 13px;
+}
+
+h2{
+    font-size: 20px;
+    margin: 10px;
+    flex-grow: 1;
+    color: #3c3f04;
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+}
+
+.integ li{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+header {
+    background-color: #e6d7b9;
+    padding: 15px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    padding: 5px 0;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.back-button svg {
+    width: 26px;
+    height: 26px;
+    fill: #000000;
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 0;
+    flex-grow: 1;
+    color: #3c3f04;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+}
+
+.logo-circle {
+    width: 150%;
+    height: 140%;
+    border-radius: 50%;
+    background-color: #d4af37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-circle img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+nav {
+    background-color: #d9c4a4;
+    padding: 10px 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    margin: 0 5px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+nav li.active a {
+    background-color: #c0b094;
+    color: #333;
+}
+
+nav li a:hover {
+    background-color: #c0b094;
+    color: #333;
+}
+
+main {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 0; /* Importante para flexbox */
+}
+
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    background: none;
+    padding: 8px;
+    margin-left: 10px;
+    flex-grow: 1;
+    outline: none;
+    color: #333;
+    font-size: 0.9em;
+}
+
+.microphone-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.microphone-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #555;
+}
+
+/* 🎯 NUEVO: Galería de imágenes con notas */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    
+}
+
+.gallery-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    width: 100%; /* Asegura que las filas ocupen todo el ancho para el justify-content: center; */
+}
+
+/* Ajuste para que los elementos de la galería se centren correctamente en filas con menos de 3 elementos */
+.gallery-row:last-child {
+    justify-content: flex-start; /* O space-around si prefieres */
+}
+
+.gallery-item {
+    position: relative;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+    justify-content: center;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item h4 {
+    margin: 8px 0 0 0;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.gallery-item .nota {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff9c4;
+    padding: 8px;
+    border: 1px solid #875353;
+    border-radius: 8px;
+    width: 160px;
+    font-size: 0.75em;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Estilos adicionales para los nuevos elementos */
+.main-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 15px 10px;
+}
+
+.main-button {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0f2f7; /* Un color claro */
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-button:active {
+    background-color: #b2ebf2;
+}
+
+.info-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 15px 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-card-header h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+}
+
+.expand-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.info-card-content {
+    display: block; /* Cambiado a block para mostrar el contenido inicialmente */
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+}
+
+.video-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.video-section iframe {
+    max-width: 100%;
+    height:200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+/* --------ServicioSalud-------------- */
+.seccion-tabs {
+    padding: 20px;
+    text-align: center;
+}
+
+.tabs-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #c0b094; 
+    color: #000;
+    padding: 10px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: smaller;
+    flex: 1 1 150px;
+    transition: background-color 0.3s;
+    max-width: 140px;
+    font-family: 'Verdana',sans-serif;
+}
+
+.tab:hover {
+    background-color: #786e5d;
+}
+
+/* Cuando una pestaña está activa */
+.tab.activo {
+    background-color: #4CAF50; /* Verde */
+}
+
+.tabs-contenido {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Ocultar contenido no activo */
+.contenido-tab {
+    display: none;
+}
+
+.contenido-tab.activo {
+    display: block;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .tab {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+}
+
+
+/* ------- Localizacion ------- */
+.map-container {
+    width: calc(100% - 30px); /* Resta el padding del main */
+    height: 400px;
+    margin: 15px auto; /* Centrado vertical */
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    flex-shrink: 0; /* Evita que se encoja en flexbox */
+    overflow: hidden;
+    transform: translateZ(0); /* Activa GPU rendering */
+    backface-visibility: hidden
+    }
+    
+#map {
+    height: 100%;
+    width: 100%;
+    }
+    
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 120px;
+    align-self: center;
+    }
+
+/* ------- Red de Apoyo ------- */
+.emergency-call-button {
+    display: inline-block;
+    background-color: #d9534f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.emergency-call-button:hover {
+    background-color: #c9302c;
+}
+
+.emergency-call-button2 {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.emergency-call-button2:hover {
+    background-color: #347937;
+}

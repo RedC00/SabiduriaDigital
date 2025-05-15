@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sabiduría Digital</title>
+    <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="/Index.html" class="back-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
+                    </svg>
+                </a>
+                <h1>Sabiduría digital</h1>
+                <div class="logo">
+                    <div class="logo-circle">
+                        <img src="imagenes/LOGOTIPO.png" alt="Logo"/>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/Tutoriales.html" onclick="irATutoriales()">Tutoriales</a></li>
+                    <li class="active"><a href="/ServiciosdeSalud.html">Servicios de salud</a></li>
+                    <li><a href="/Localizacion.html" onclick="irALocalizador()">Localizador</a></li>
+                    <li><a href="/RedApoyo.html" onclick="irARedApoyo()">Red de apoyo</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar..." />
+                <button class="microphone-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+                    </svg>
+                </button>
+            </div>
+
+<!-- -------------------------------------------------- -->
+    <section class="seccion-tabs">
+    <div class="tabs-cabecera">
+        <div class="tab" onclick="mostrarContenidoTab('contenido1')">Salud</div>
+        <div class="tab" onclick="mostrarContenidoTab('contenido2')">Integración con información de bienestar y seguridad</div>
+        <div class="tab" onclick="mostrarContenidoTab('contenido3')">Recordatorio de medicamentos</div>
+    </div>
+
+    <div class="tabs-contenido">
+        <div id="contenido1" class="contenido-tab activo">
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h2>Qué hacer en caso de mareo</h2>
+                    <button class="expand-button" onclick="toggleMarea()">&#9451;</button>
+                </div>
+                <div class="info-card-content" id="marea-content">
+                    Quédese quieto y descanse cuando se presenten los síntomas. Evite cambios súbitos en movimientos o posición. Aumente lentamente la actividad. Puede necesitar un bastón u otra ayuda para caminar cuando pierda el equilibrio durante un ataque de vértigo.
+                </div>
+            </div>
+
+            <div class="gallery">
+                <div class="gallery-row">
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/alzheimer.png" alt="Imagen 1" />
+                        <h4>Alzheimer</h4>
+                        <div class="nota">Se trata de un deterioro cognitivo que sufre la persona y que su máxima expresión es la pérdida de memoria progresiva...</div>
+                    </div>
+
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/infarto.png" alt="Imagen 2" />
+                        <h4>Infarto</h4>
+                        <div class="nota">Suele estar iniciado por un dolor incipiente en el pecho y brazos. Acompañado de dificultad respiratoria, náuseas o mareos.</div>
+                    </div>
+
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/artitis1.png" alt="Imagen 3" />
+                        <h4>Artrosis y artritis</h4>
+                        <div class="nota">Provoca dolor al realizar ciertos movimientos. La artritis puede tratarse a base de rehabilitación e inflamatorios.</div>
+                    </div>
+                </div>
+
+                <div class="gallery-row">
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/hipertension.png" alt="Imagen 4" />
+                        <h4>Hipertensión</h4>
+                        <div class="nota">Para cuidar estos índices es necesario llevar una dieta alimenticia y realizar actividad física.</div>
+                    </div>
+
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/parkinson.png" alt="Imagen 5" />
+                        <h4>Parkinson</h4>
+                        <div class="nota">Afecta al sistema nervioso, genera temblores, movilidad reducida y alteración del equilibrio.</div>
+                    </div>
+
+                    <div class="gallery-item" onclick="mostrarNota(this)">
+                        <img src="imagenes/Rotura.png" alt="Imagen 6" />
+                        <h4>Osteoporosis</h4>
+                        <div class="nota">Puede derivar en roturas de huesos tras caídas o golpes. Es importante prevenir con alimentación y ejercicio.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contenido2" class="contenido-tab">
+            <div class="integ">
+                <ul>
+                    <h2>Información del Usuario:</h2>
+                    <li>Nivel de azucar: 70 mg</li>
+                    <li>Ritmo cardiaco: 60 </li>
+                    <li>Alergias: ninguna</li>
+                    <li>Malestares: insomnio</li>
+
+                    <br>
+                    <h2>Contactos de emergencias:</h2>
+                    <li>Hospital mas cercano: +52 22-44-66-8833 </li>
+                    <li>Emergencias: +52 22-44</li>
+                    <li>Familiar Cercano: +52 20-45-12-1121</li>
+                    <li>Vecino(opcional): +52 21-89-67-5422</li>
+                </ul>
+                <br>
+                <center><button>Editar</button></center>
+            </div>
+        </div>
+        <div id="contenido3" class="contenido-tab">
+            <ul>
+                <h2>Medicamentos para la presion</h2>
+                <li>Clortalidona (Hygroton): dentro de 2 horas</li>
+                <li>Triamtereno (Dyrenium): dentro de 5 horas </li>
+
+                <br>
+                <br>
+
+                <h2>Medicamentos para la diabetes</h2>
+                <li>Sulfonilureas: dentro de 20 minutos</li>
+                <li>Metformina: dentro de 12 horas</li>
+            </ul>
+        </div>
+    </div>
+    </section>
+
+        </main>
+    </div>
+
+<!-- --------------------SCRIPTS------------------------------ -->
+    <script>
+        function mostrarNota(elemento) {
+            document.querySelectorAll('.nota').forEach(n => n.style.display = 'none');
+            const nota = elemento.querySelector('.nota');
+            nota.style.display = 'block';
+        }
+
+        function toggleMarea() {
+            const mareaContent = document.getElementById('marea-content');
+            const expandButton = document.querySelector('.expand-button');
+            if (mareaContent.style.display === 'none') {
+                mareaContent.style.display = 'block';
+                expandButton.innerHTML = '&#9451;';
+            } else {
+                mareaContent.style.display = 'none';
+                expandButton.innerHTML = '&#9452;';
+            }
+        }
+
+        // -------------------------------------
+        // CODIGO PARA LAS PESTA;AS 
+        //-------------------------------------
+        function mostrarContenidoTab(id) {
+    const tabs = document.querySelectorAll('.tab');
+    const contenidos = document.querySelectorAll('.contenido-tab');
+
+    // Desactivar todas las pestañas y ocultar contenido
+    tabs.forEach(tab => tab.classList.remove('activo'));
+    contenidos.forEach(cont => cont.classList.remove('activo'));
+
+    // Activar la pestaña clicada y su contenido
+    document.querySelector(`[onclick="mostrarContenidoTab('${id}')"]`).classList.add('activo');
+    document.getElementById(id).classList.add('activo');
+}
+
+    </script>
+</body>
+</html>
