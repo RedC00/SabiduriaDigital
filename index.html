@@ -1,0 +1,117 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+  header("Location: index.html");
+  exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sabiduría Digital</title>
+    <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="#" class="back-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
+                    </svg>
+                </a>
+                <h1>Sabiduría digital</h1>
+                <div class="logo">
+                    <div class="logo-circle">
+                        <img src="imagenes/LOGOTIPO.png" alt="Logo"/>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/Tutoriales.html" onclick="irATutoriales()">Tutoriales</a></li>
+                    <li><a href="/ServiciosdeSalud.html">Servicios de salud</a></li>
+                    <li><a href="/Localizacion.html" onclick="irALocalizador()">Localizador</a></li>
+                    <li><a href="/RedApoyo.html" onclick="irARedApoyo()">Red de apoyo</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar..." />
+                <button class="microphone-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <h2>Sobre Nosotros</h2> 
+            Somos una iniciativa dedicada al bienestar de los adultos mayores, 
+            enfocada en reducir las barreras tecnológicas que enfrentan en situaciones 
+            críticas. Nuestro equipo está conformado por profesionales de la salud, 
+            desarrolladores y voluntarios que trabajan juntos para ofrecer una herramienta 
+            digital inclusiva, segura y sencilla de usar. A través de nuestra plataforma, 
+            facilitamos el acceso a servicios médicos, líneas de emergencia, localización 
+            en tiempo real y redes de apoyo familiar o comunitario.
+
+            Creemos en el poder de la tecnología como puente para el cuidado, la comunicación 
+            y la atención oportuna. Nuestra misión es acompañar a los adultos mayores en cada
+             paso, brindándoles tranquilidad a ellos y a sus seres queridos.
+
+             <br>
+            <h2>Objetivo</h2>
+            Brindar asistencia rápida, confiable y accesible a personas adultas mayores en 
+            situaciones de emergencia médica, riesgo o necesidad de orientación. Nuestro 
+            objetivo es crear un entorno digital amigable que les permita conectarse con 
+            servicios de salud cercanos, contactar a redes de apoyo, y recibir ayuda inmediata
+             con solo un par de clics, fortaleciendo su autonomía y seguridad en el día a día.
+        </main>
+    </div>
+
+    <script>
+        function mostrarNota(elemento) {
+            document.querySelectorAll('.nota').forEach(n => n.style.display = 'none');
+            const nota = elemento.querySelector('.nota');
+            nota.style.display = 'block';
+        }
+
+        function toggleMarea() {
+            const mareaContent = document.getElementById('marea-content');
+            const expandButton = document.querySelector('.expand-button');
+            if (mareaContent.style.display === 'none') {
+                mareaContent.style.display = 'block';
+                expandButton.innerHTML = '&#9451;';
+            } else {
+                mareaContent.style.display = 'none';
+                expandButton.innerHTML = '&#9452;';
+            }
+        }
+
+        // Redirecciones a otras vistas
+        document.getElementById('btnIntegracion').onclick = function() {
+            window.location.href = 'integracion.html';
+        };
+
+        document.getElementById('btnMedicamentos').onclick = function() {
+            window.location.href = 'Recordatorio.html';
+        };
+
+        function irATutoriales() {
+            window.location.href = 'tutoriales.html';
+        }
+
+        function irALocalizador() {
+            window.location.href = 'Localizacion.html';
+        }
+
+        function irARedApoyo() {
+            window.location.href = 'RedApoyo.html';
+        }
+    </script>
+</body>
+</html>
